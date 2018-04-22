@@ -1,0 +1,14 @@
+/*#block_container*/
+/*{*/
+    /*text-align:center;*/
+/*}*/
+#bloc1
+{
+    text-align: left;
+    display:inline;
+}
+#bloc2
+{
+    text-align: right;
+    display:inline;
+}

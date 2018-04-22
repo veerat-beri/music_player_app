@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Welcome User</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    </head>
+    <body>
+    {% if user.is_authenticated %}
+        <p style="text-align:left;">
+            <a href="{% url 'userHomePage' %}" class="btn btn-default">Home</a>
+            <span style="float:right;"><a href="{% url 'logout' %}" class="btn btn-default">Logout</a></span>
+        </p>
+    {% else %}
+        <p style="text-align:left;">
+            <a href="{% url 'signUp' %}" class="btn btn-default">Sign Up</a>
+            <span style="float:right;"><a href="{% url 'login' %}" class="btn btn-default">Login</a></span>
+        </p>
+    {% endif %}
+    {% block content %}
+
+    {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'registration/base.html' %}
+
+{% block title %}Songs{% endblock %}
+
+{% block content %}
+    <a href="{% url 'change_password' %}" class="btn btn-default">Change Password</a>
+    <div class="alert alert-info">
+        You are logged in as: <strong>{{user.username}}</strong>
+    </div>
+<div>
+    <h3>Your Playlists: {{ noOfSongs }}</h3>
+</div>
+{% for item in playLists %}
+    <div class="post">
+        <div class="date">
+            <a href ="{% url 'playListView' playListNo=item.id %}">{{ item.title }}</a>
+        </div>
+    </div>
+{% endfor %}
+<div>
+    <a href="{% url 'createNewPlaylist' %}" class="btn btn-default">New Playlist</a>
+</div>
+{% endblock %}

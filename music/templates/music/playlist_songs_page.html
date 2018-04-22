@@ -1,0 +1,17 @@
+{% extends 'registration/base.html' %}
+
+{% block title %}Songs{% endblock %}
+
+{% block content %}
+    {% for song in playlistSongs %}
+    <div >
+        <div>
+            <a href="{{song.songFile.url}}"> {{ song.title }}</a>
+        </div>
+    </div>
+    {% endfor %}
+
+    <form action="{% url 'deletePlaylist' pk=playlistId %}">
+        <input type="submit" value="Delete Playlist">
+    </form>
+{% endblock %}

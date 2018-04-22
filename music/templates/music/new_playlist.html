@@ -1,0 +1,28 @@
+{% extends 'registration/base.html' %}
+
+{% block title %}Choose Songs{% endblock %}
+
+{% block content %}
+<form action="{% url 'createNewPlaylist' %}" method="post">
+    {% if error  %}
+        <div class="alert alert-danger">
+            <strong>{{ error }}</strong>
+        </div>
+
+    {% endif %}
+    Enter Playlist Name:
+    <input type="text" name="playlistName" id="playlistName" required autofocus><br>
+    {% csrf_token %}
+    {% for song in songs %}
+        <div>
+            <div>
+                <input class="checkBox" type="checkbox" name="selectedSongsIdList[]" value="{{ song.id }}"><a href="{{ song.songFile.url }}">{{song.title}}({{ song.artist }})</a><br>
+            </div>
+        </div>
+    {% endfor %}
+    <div>
+        <input type="submit" value="Add selected songs">
+    </div>
+    <input type="reset">
+</form>
+{% endblock %}
