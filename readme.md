@@ -17,7 +17,7 @@ Also, admin is responsible for uploading songs with title and artist name.
 * make virtualenv and activate it:
     ```
     sudo pip install virtualenv
-    virtualenv -p python3 \*venvName\*
+    virtualenv -p python3 venvName
     . venvName/bin/activate
     ```
 * Clone Repository
